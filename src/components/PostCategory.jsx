@@ -3,18 +3,25 @@ import { list } from '../ConstantData/List'
 import { useNavigate } from 'react-router-dom'
 import { CategoryList } from './CategoryList'
 import { useState } from 'react'
+
 export const PostCategory = () => {
+
     const [related, setRelated] = useState([])
+
     const navigate = useNavigate()
 
     const handleadd = () => {
         navigate('/adddetails')
     }
+    const back = () => {
+        navigate('/')
+    }
+
     return (
         <>
             <div className='h-screen w-screen flex-column justify-center items-center'>
                 <div className="w-full h-16 bg-gray-200 flex items-center p-2 gap-4 justify-between pl-3 ">
-                    <BiLeftArrowAlt className='text-3xl' />
+                    <BiLeftArrowAlt onClick={back} className='text-3xl cursor-pointer' />
                 </div>
                 <span className='flex w-full justify-center h-16 items-center text-xl md:text-2xl font-bold'>POST YOUR AD</span>
                 <div className='w-[60%] h-[85%] md:h-[81%] border border-gray-400 mx-auto flex-column '>
