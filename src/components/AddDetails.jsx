@@ -213,7 +213,7 @@ export const AddDetails = () => {
             if (!productData?.state) {
                 setErrors((prev) => ({
                     ...prev,
-                    state: "select state",
+                    state: "please select state",
                 }));
                 isAllowed = false;
             } else {
@@ -226,7 +226,7 @@ export const AddDetails = () => {
             if (!productData?.city) {
                 setErrors((prev) => ({
                     ...prev,
-                    city: "select city",
+                    city: "please select city",
                 }));
                 isAllowed = false;
             } else {
