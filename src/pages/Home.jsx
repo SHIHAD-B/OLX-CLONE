@@ -29,7 +29,7 @@ export const Home = () => {
                 obj.push(data)
             });
             setFetchdata(obj)
-            console.log(fetchData);
+            console.log(fetchData+"jjjjjj");
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -59,7 +59,7 @@ export const Home = () => {
 
             setLimitedData(newLimitedData);
         }
-    }, [count, fetchData]);
+    }, [count]);
     return (
         <>
             <Navbar />
