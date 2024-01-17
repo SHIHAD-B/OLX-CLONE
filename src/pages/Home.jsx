@@ -41,38 +41,51 @@ export const Home = () => {
     }
 
     useEffect(() => {
-        fetchDataFromFirestore();
-
-        const newLimitedData = [];
-        if (count <= fetchData.length) {
-
-            for (let i = 0; i < count; i++) {
-                newLimitedData.push(fetchData[i]);
+        const fetchDataFromFirestore = async () => {
+            try {
+                const dataCollection = collection(db, 'product_collection');
+                const querySnapshot = await getDocs(dataCollection);
+    
+                let obj = []
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    obj.push(data)
+                });
+                setFetchdata(obj);
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-
-            setLimitedData(newLimitedData);
-
-        }else{
-            for (let i = 0; i < fetchData.length; i++) {
-                newLimitedData.push(fetchData[i]);
-            }
-
-            setLimitedData(newLimitedData);
         }
-    }, [count]);
-    useEffect(() => {
-        fetchDataFromFirestore();
-
-        const newLimitedData = [];
-       
-            for (let i = 0; i < count; i++) {
-                newLimitedData.push(fetchData[i]);
+    
+        const updateLimitedData = () => {
+            const newLimitedData = [];
+    
+            if (count <= fetchData.length) {
+                for (let i = 0; i < count; i++) {
+                    newLimitedData.push(fetchData[i]);
+                }
+            } else {
+                for (let i = 0; i < fetchData.length; i++) {
+                    newLimitedData.push(fetchData[i]);
+                }
             }
-
-            setLimitedData(newLimitedData);
-
-       
-    }, []);
+    
+            if (!unmounted) {
+                setLimitedData(newLimitedData);
+            }
+        };
+    
+        let unmounted = false;
+    
+        fetchDataFromFirestore();
+        updateLimitedData();
+    
+        return () => {
+           
+            unmounted = true;
+        };
+    }, [count, fetchData]);
+    
     return (
         <>
             <Navbar />
