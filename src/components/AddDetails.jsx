@@ -362,6 +362,8 @@ export const AddDetails = () => {
     }
     return (
         <>
+
+        
             {loading && <JustLoading additional={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]`} />}
             <div className=' w-screen flex-column justify-center items-center pb-8 '>
                 <div className="w-full h-16 bg-gray-200 flex items-center p-2 gap-4 justify-between pl-3 ">

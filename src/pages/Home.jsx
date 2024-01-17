@@ -52,6 +52,12 @@ export const Home = () => {
 
             setLimitedData(newLimitedData);
 
+        }else{
+            for (let i = 0; i < fetchData.length; i++) {
+                newLimitedData.push(fetchData[i]);
+            }
+
+            setLimitedData(newLimitedData);
         }
     }, [count, fetchData]);
     return (
@@ -69,10 +75,14 @@ export const Home = () => {
                             <div key={idx} onClick={() => handleProductDetail(data?.product?.id)} className="h-64 w-64 bg-slate-100 p-1 border border-gray-400 rounded relative cursor-pointer">
                                 <div className="relative h-[60%] w-full border border-gray-400 rounded">
                                     <img className="absolute h-full w-full object-contain" src={data?.product?.images} alt="" />
+
+
                                     {idx < 4 && (
 
                                         <div className="absolute top-1 left-0 h-5 w-[35%] bg-yellow-400 text-xs text-gray-600 flex items-center justify-center gap-2 rounded"><BsFillLightningFill className="text-black" />featured</div>
                                     )}
+
+                                    
                                     <div className="absolute top-1 right-1 bg-white h-10 w-10 rounded-3xl flex justify-center items-center cursor-pointer"><FiHeart className="text-xl" /></div>
                                 </div>
                                 <div className="w-full h-[40%] pl-3 pt-1 flex flex-col ">

@@ -6,7 +6,7 @@ import { GiSofa, GiMailShirt, GiGuitar } from 'react-icons/gi'
 import { MdPets } from 'react-icons/md'
 import { GrServices } from 'react-icons/gr'
 import { BiCar, BiBuildingHouse } from 'react-icons/bi'
-export const list = [
+ const list = [
     {
         id: 1,
         icon: BiCar,
@@ -74,3 +74,4 @@ export const list = [
         sub: ["Education & Classes", "Tours & Travel"]
     },
 ]
+export default list

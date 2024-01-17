@@ -1,5 +1,5 @@
 import { BiLeftArrowAlt } from 'react-icons/bi'
-import { list } from '../ConstantData/List'
+import list from '../ConstantData/List'
 import { useNavigate } from 'react-router-dom'
 import { CategoryList } from './CategoryList'
 import { useState } from 'react'
