@@ -60,6 +60,26 @@ export const Home = () => {
             setLimitedData(newLimitedData);
         }
     }, [count]);
+    useEffect(() => {
+        fetchDataFromFirestore();
+
+        const newLimitedData = [];
+        if (count <= fetchData.length) {
+
+            for (let i = 0; i < count; i++) {
+                newLimitedData.push(fetchData[i]);
+            }
+
+            setLimitedData(newLimitedData);
+
+        }else{
+            for (let i = 0; i < fetchData.length; i++) {
+                newLimitedData.push(fetchData[i]);
+            }
+
+            setLimitedData(newLimitedData);
+        }
+    }, []);
     return (
         <>
             <Navbar />
