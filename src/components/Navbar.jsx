@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import { LoginModal } from './LoginModal'
 import { useContext, useState } from 'react'
 import AuthContexts from '../context/AuthContexts'
-import logo from "./src/assets/images/OLX-Logo-PNG_h0bmj9.png"
+// import logo from "./src/assets/images/OLX-Logo-PNG_h0bmj9.png"
+import logo from '../assets/images/OLX-Logo-PNG_h0bmj9.png'
 export const Navbar = () => {
     const { user, logbutton, handleLogin, logOut } = useContext(AuthContexts)
 
